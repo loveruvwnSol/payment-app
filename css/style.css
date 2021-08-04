@@ -7,8 +7,10 @@
 }
 
 /* top */
+
 .top{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -19,8 +21,14 @@
     text-align: center;
 }
 
+.select_text{
+    text-align: center;
+    margin: 50px 0px;
+}
+
 button{
     padding: 10px 50px;
+    margin: 0px 20px;
     border: #707070 1px solid;
     border-radius: 50px;
     background-color: #FFFFFF;
@@ -30,4 +38,28 @@ button{
 
 button:hover{
     background-color: #EAE8E8;
+}
+
+/* 初期設定 */
+
+/* 決定ボタンを非表示 */
+.DecisionButton{
+    display: none;
+}
+
+/* textboxを非表示 */
+.textbox{
+    display: none;
+    padding: 10px 50px;
+    margin: 25px 20px;
+    border: #707070 1px solid;
+    border-radius: 50px;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    transition: all 0.2s;
+    text-align: center;
+    color: #707070;
+}
+.textbox:focus {
+    outline: none;
 }

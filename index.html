@@ -9,12 +9,19 @@
     <title>支払いアプリ</title>
   </head>
   <body>
+    <!-- text -->
     <div class="top">
-      <h1 class="title">支払いアプリ</h1>
-      <div>
-        <p>どちらか選択してください</p>
-        <a href="#"><button>割り勘</button></a>
-        <a href="#"><button>奢り</button></a>
+      <h1 class="title" id="output_title">支払いアプリ</h1>
+      <p class="select_text" id="output_select_text">どちらか選択してください</p>
+    <!-- textbox -->
+    <input class="textbox" id="AmountOfMoneyBox" type="text" value="金額を入力してください" onclick="clickAmountOfMoneyBox()">
+    <input class="textbox" id="NumberOfPeopleBox" type="text" value="人数を入力してください" onclick="clickNumberOfPeopleBox()">
+    <!-- button -->
+      <div class="anyButtons">
+        <button id="DutchTreatButton" onclick="startDutchTreat();">割り勘</button>
+        <button id="GraceButton" onclick="startGrace();">奢り</button>
+
+        <button class="DecisionButton" id="DecisionButton">決定</button>
       </div>
     </div>
   </body>
