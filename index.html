@@ -10,18 +10,28 @@
   </head>
   <body>
     <!-- text -->
-    <div class="top">
+    <div class="anyTexts">
       <h1 class="title" id="output_title">支払いアプリ</h1>
       <p class="select_text" id="output_select_text">どちらか選択してください</p>
+      <h1 class="result_text" id="resultText"></h1>
     <!-- textbox -->
-    <input class="textbox" id="AmountOfMoneyBox" type="text" value="金額を入力してください" onclick="clickAmountOfMoneyBox()">
-    <input class="textbox" id="NumberOfPeopleBox" type="text" value="人数を入力してください" onclick="clickNumberOfPeopleBox()">
+    <div class="input_AmountOfMoney">
+      <input class="textbox" id="AmountOfMoneyBox" type="text" placeholder="金額を入力してください">
+      <!-- <h2>円</h2> -->
+    </div>
+    <div class="input_NumberOfPeople">
+      <input class="textbox" id="NumberOfPeopleBox" type="text" placeholder="人数を入力してください">
+      <!-- <h2>人</h2> -->
+    </div>
     <!-- button -->
       <div class="anyButtons">
-        <button id="DutchTreatButton" onclick="startDutchTreat();">割り勘</button>
-        <button id="GraceButton" onclick="startGrace();">奢り</button>
+        <button id="DutchTreatButton">割り勘</button>
+        <button id="GraceButton">奢り</button>
 
-        <button class="DecisionButton" id="DecisionButton">決定</button>
+        <button class="DecisionButton" id="DutchTreatDecisionButton">決定</button>
+        <button class="DecisionButton" id="GraceDecisionButton">決定</button>
+
+        <button class="backButton" id="backButton">戻る</button>
       </div>
     </div>
   </body>
