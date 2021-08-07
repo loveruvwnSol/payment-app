@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/config.js"></script>
-    <title>支払いアプリ</title>
-  </head>
-  <body>
-    <!-- text -->
-    <div class="anyTexts">
-      <h1 class="title" id="output_title">支払いアプリ</h1>
-      <p class="select_text" id="output_select_text">どちらか選択してください</p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js"></script>
+  <title>支払いアプリ</title>
+</head>
+
+<body>
+  <!-- text -->
+  <div class="contents">
+    <div class="any_Texts">
+      <h1 class="title" id="outputTitle">支払いアプリ</h1>
+      <p class="select_text" id="outputSelectText">どちらか選択してください</p>
       <h1 class="result_text" id="resultText"></h1>
+      <p class="error_text" id="errorText"></p>
+    </div>
     <!-- textbox -->
-    <div class="input_AmountOfMoney">
-      <input class="textbox" id="AmountOfMoneyBox" type="text" placeholder="金額を入力してください">
-      <!-- <h2>円</h2> -->
-    </div>
-    <div class="input_NumberOfPeople">
-      <input class="textbox" id="NumberOfPeopleBox" type="text" placeholder="人数を入力してください">
-      <!-- <h2>人</h2> -->
-    </div>
-    <!-- button -->
-      <div class="anyButtons">
-        <button id="DutchTreatButton">割り勘</button>
-        <button id="GraceButton">奢り</button>
-
-        <button class="DecisionButton" id="DutchTreatDecisionButton">決定</button>
-        <button class="DecisionButton" id="GraceDecisionButton">決定</button>
-
-        <button class="backButton" id="backButton">戻る</button>
+    <div class="any_textboxs">
+      <div class="input_AmountOfMoney">
+        <input class="textbox" id="amountOfMoneyBox" type="number" placeholder="金額を入力してください">
+        <!-- <h2>円</h2> -->
+      </div>
+      <div class="input_NumberOfPeople">
+        <input class="textbox" id="DTNumberOfPeopleBox" type="number" placeholder="人数を入力してください">
+        <!-- <h2>人</h2> -->
+      </div>
+      <div class="input_NumberOfPeople">
+        <input class="textbox" id="GRCNumberOfPeopleBox" type="number" placeholder="人数を入力してください">
+      </div>
+      <div class="input_name" id="inputName">
+        <p class="Name"></p>
+        <input class="textbox" id="nameBox" type="text" placeholder="名前を入力してください">
       </div>
     </div>
-  </body>
+    <!-- button -->
+    <div class="any_buttons">
+      <button id="dutchTreatButton">割り勘</button>
+      <button id="graceButton">奢り</button>
+      <button class="back_button" id="backButton">戻る</button>
+      <button class="decision_button" id="dutchTreatDecisionButton">決定</button>
+      <button class="decision_button" id="graceNextPageButton">決定</button>
+      <button class="decision_button" id="graceDecisionButton">決定</button>
+    </div>
+  </div>
+</body>
+
 </html>
