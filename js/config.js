@@ -10,8 +10,7 @@ class PaymentApp {
     this.dutchTreatDecisionButton = document.getElementById("dutchTreatDecisionButton"); // 割り勘結果表示ボタン
     this.GRCNumberOfPeopleBox = document.getElementById("GRCNumberOfPeopleBox"); // 奢り人数入力テキストボックス
     this.graceNextPageButton = document.getElementById("graceNextPageButton"); // 奢りページ遷移ボタン
-    this.inputName = document.getElementById("inputName"); // 名前番号テキスと名前入力テキストボックス
-    this.numberName = document.getElementById("numberName"); // 名前番号テキスト
+    this.inputName = document.getElementById("inputName");
     this.nameBox = document.getElementById("nameBox"); // 名前入力テキストボックス
     this.graceDecisionButton = document.getElementById("graceDecisionButton"); // 奢り結果表示ボタン
     this.resultText = document.getElementById("resultText"); // 結果テキスト
@@ -68,8 +67,7 @@ class PaymentApp {
       this.amountOfMoneyBox.style.color = "#000000";
       this.DTNumberOfPeopleBox.style.display = "flex";
       this.DTNumberOfPeopleBox.style.color = "#000000";
-      this.backButton.style.display = "flex";
-      this.errorText.innerHTML = "数値が入力されていません";
+      this.errorText.innerHTML = "入力されていません";
     }
     else {
       this.errorText.innerHTML = "";
@@ -96,22 +94,46 @@ class PaymentApp {
   // ページ遷移ボタンが押されたら実行
   GraceNextPage() {
     // textboxに入力された数値を取得
-    const GraceNPO = this.GRCNumberOfPeopleBox.value;
+    const peopeNPO = this.GRCNumberOfPeopleBox.value;
 
     // innerHTMLでテキストを書き換え
     this.title.innerHTML = "名前を入力してください";
+
+    this.nameBox.style.display = "flex";
+    this.nameBox.style.color = "#000000";
+    this.graceDecisionButton.style.display = "flex";
 
     // textboxとページ遷移ボタンの削除
     this.graceNextPageButton.style.display = "none";
     this.GRCNumberOfPeopleBox.style.display = "none";
 
+    // 数値が入力されなかったらエラーテキストを表示
+    if (peopeNPO == "") {
+      this.title.innerHTML = "人数を入力してください";
+      this.resultText.innerHTML = "";
+      this.GRCNumberOfPeopleBox.style.display = "flex";
+      this.GRCNumberOfPeopleBox.style.color = "#000000";
+      this.graceNextPageButton.style.display = "flex";
+      this.nameBox.style.display = "none";
+      this.graceDecisionButton.style.display = "none";
+      this.errorText.innerHTML = "入力されていません";
+    }
+    else {
+      this.errorText.innerHTML = "";
+    }
+  }
+
+  // 奢りの結果
+  GraceSubmit() {
+
+
     // if ( == ""){
-    //   this.title.innerHTML = "人数を入力してください";
+    //   this.title.innerHTML = "名前を入力してください";
     //   this.resultText.innerHTML = "";
-    //   this.GRCNumberOfPeopleBox.style.display = "flex";
-    //   this.GRCNumberOfPeopleBox.style.color = "#000000";
+    //   this.nameBox.style.display = "flex";
+    //   this.graceDecisionButton.style.display = "flex";
     //   this.backButton.style.display = "flex";
-    //   this.errorText.innerHTML = "数値が入力されていません";
+    //   this.errorText.innerHTML = "入力されていません";
     // }
     // else {
     //   this.errorText.innerHTML = "";
@@ -122,8 +144,9 @@ class PaymentApp {
 window.onload = function () {
   const app = new PaymentApp();
   app.dutchTreatButton.addEventListener("click", () => app.startDutchTreat());
-  app.graceButton.addEventListener("click", () => app.startGrace());
   app.dutchTreatDecisionButton.addEventListener("click", () => app.dutchTreatSubmit());
-  app.backButton.addEventListener("click", () => location.reload());
+  app.graceButton.addEventListener("click", () => app.startGrace());
   app.graceNextPageButton.addEventListener("click", () => app.GraceNextPage());
+  app.graceDecisionButton.addEventListener("click", () => app.GraceSubmit());
+  app.backButton.addEventListener("click", () => location.reload());
 };
