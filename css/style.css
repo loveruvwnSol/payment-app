@@ -74,7 +74,6 @@ button:hover {
 
 /* textbox */
 .textbox {
-  /* textboxを非表示 */
   display: none;
   padding: 10px 50px;
   margin: 25px 20px;
