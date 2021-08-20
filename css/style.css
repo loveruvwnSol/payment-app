@@ -67,6 +67,10 @@ button:hover {
   display: none;
   border: #00ced1 1px solid;
 }
+.add_textbox_button{
+  display: none;
+  border: #00f3b0 1px solid;
+}
 /* 戻るボタンを非表示 */
 .back_button {
   display: none;
@@ -90,4 +94,8 @@ button:hover {
 }
 .textbox:focus::-webkit-input-placeholder {
   color: transparent;
+}
+.input_Name{
+  display: flex;
+  justify-content: space-around;
 }
