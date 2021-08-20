@@ -122,7 +122,8 @@ class PaymentApp {
     const NameArray = [
       
     ]
-    // const GraceResult
+    // ランダム関数
+    const GraceResult
     const Name = this.nameBox.value;
     NameArray.push(Name);
     console.log(NameArray);
