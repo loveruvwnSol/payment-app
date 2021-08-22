@@ -93,22 +93,28 @@ class PaymentApp {
   // textbox追加
   addTextbox() {
     // 新しい div 要素を作成
+    var counttext = 1;
+    this.addTextboxButton.addEventListener('click', () =>{
+      for (let count = 0; count < 100; count++) {
+        counttext = counttext + count;
+      }
+    })
+    console.log(counttext);
     var newDiv = document.createElement("input");
     newDiv.setAttribute("type", "text");
-    newDiv.setAttribute("id", "addNameBox");
+    newDiv.setAttribute("id", counttext + "addNameBox");
     newDiv.setAttribute("class", "textbox");
-    newDiv.setAttribute("placeholder", "名前を入力してください");
+    newDiv.setAttribute("placeholder", counttext +  "人目の名前を入力");
     newDiv.style.display = "flex";
     newDiv.style.color = "#000000";
 
     // DOM に新しく作られた要素とその内容を追加
     var currentDiv = document.getElementById("inputName");
     currentDiv.appendChild(newDiv);
-  }
+  } 
 
   // 奢りの結果
   GraceSubmit() {
-
     // innerHTMLでテキストを書き換え
     this.title.innerHTML = "今回奢る人は";
     this.resultText.innerHTML =  + "さん";
@@ -122,10 +128,11 @@ class PaymentApp {
     const NameArray = [
       
     ]
-    // ランダム関数
-    const GraceResult
+    // ランダム関数など
     const Name = this.nameBox.value;
+    const addName = counttext + addNameBox.value;
     NameArray.push(Name);
+    NameArray.push(addName);
     console.log(NameArray);
     
     if (Name == ""){
