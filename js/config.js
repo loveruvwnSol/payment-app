@@ -72,6 +72,7 @@ class PaymentApp {
     }
   }
 
+
   // 奢りボタンが押されたら実行
   startGrace() {
     // innerHTMLでテキストを書き換え
@@ -93,24 +94,22 @@ class PaymentApp {
   // textbox追加
   addTextbox() {
     // 新しい div 要素を作成
-    var counttext = 1;
-    this.addTextboxButton.addEventListener('click', () =>{
-      for (let count = 0; count < 100; count++) {
-        counttext = counttext + count;
+    var countText = 1;    
+      for (let i = 0; i < 2; i++){
+        countText = countText + i;
       }
-    })
-    console.log(counttext);
-    var newDiv = document.createElement("input");
-    newDiv.setAttribute("type", "text");
-    newDiv.setAttribute("id", counttext + "addNameBox");
-    newDiv.setAttribute("class", "textbox");
-    newDiv.setAttribute("placeholder", counttext +  "人目の名前を入力");
-    newDiv.style.display = "flex";
-    newDiv.style.color = "#000000";
+    console.log(countText);
+    var newTextbox = document.createElement("input");
+    newTextbox.setAttribute("type", "text");
+    newTextbox.setAttribute("id", countText + "nameBox");
+    newTextbox.setAttribute("class", "textbox");
+    newTextbox.setAttribute("placeholder", countText +  "人目の名前を入力");
+    newTextbox.style.display = "flex";
+    newTextbox.style.color = "#000000";
 
     // DOM に新しく作られた要素とその内容を追加
-    var currentDiv = document.getElementById("inputName");
-    currentDiv.appendChild(newDiv);
+    var currentTextbox = document.getElementById("inputName");
+    currentTextbox.appendChild(newTextbox);
   } 
 
   // 奢りの結果
@@ -130,7 +129,7 @@ class PaymentApp {
     ]
     // ランダム関数など
     const Name = this.nameBox.value;
-    const addName = counttext + addNameBox.value;
+    const addName = document.getElementById(countText + "addNameBox").value;
     NameArray.push(Name);
     NameArray.push(addName);
     console.log(NameArray);
