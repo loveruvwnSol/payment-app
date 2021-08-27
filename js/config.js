@@ -1,6 +1,8 @@
 class PaymentApp {
   // id取得
   constructor() {
+    this.countText = 2; // カウンター
+    this.anyTexts = document.getElementById("anyTexts");
     this.title = document.getElementById("outputTitle"); // タイトルテキスト
     this.select_text = document.getElementById("outputSelectText"); // サブテキスト
     this.dutchTreatButton = document.getElementById("dutchTreatButton"); // 割り勘ボタン
@@ -10,18 +12,22 @@ class PaymentApp {
     this.dutchTreatDecisionButton = document.getElementById("dutchTreatDecisionButton"); // 割り勘結果表示ボタン
     this.addTextboxButton = document.getElementById("addTextboxButton");
     this.inputName = document.getElementById("inputName"); // 名前入力テキストボックスを囲うdivId
-    this.nameBox = document.getElementById("nameBox"); // 名前入力テキストボックス
+    this.nameBox = document.getElementById("1nameBox"); // 名前入力テキストボックス
     this.graceDecisionButton = document.getElementById("graceDecisionButton"); // 奢り結果表示ボタン
     this.resultText = document.getElementById("resultText"); // 結果テキスト
     this.backButton = document.getElementById("backButton"); // 戻るボタン
     this.errorText = document.getElementById("errorText"); // エラーテキスト
+    this.dutchTreatExplanationBtn = document.getElementById("dutchTreatExplanationBtn");
   }
 
   // 割り勘ボタンが押されたら実行
   startDutchTreat() {
-    // innerHTMLでテキストを書き換え
+    // テキストを書き換え
     this.title.innerHTML = "支払い金額と人数を入力してください";
     this.select_text.innerHTML = "";
+
+    // heightの調整
+    this.anyTexts.style.height = "40vh";
 
     // 割り勘ボタンと奢りボタンの削除
     this.dutchTreatButton.style.display = "none";
@@ -49,6 +55,9 @@ class PaymentApp {
     this.title.innerHTML = "1人あたりの支払額";
     this.resultText.innerHTML = dutchTreatResult + "円";
 
+    // heightの調整
+    this.anyTexts.style.height = "60vh";
+
     // 戻るボタンの追加
     this.backButton.style.display = "flex";
 
@@ -72,12 +81,14 @@ class PaymentApp {
     }
   }
 
-
   // 奢りボタンが押されたら実行
   startGrace() {
-    // innerHTMLでテキストを書き換え
+    // テキストを書き換え
     this.title.innerHTML = "名前を入力してください";
     this.select_text.innerHTML = "";
+
+    // heightの調整
+    this.anyTexts.style.height = "40vh";
 
     // 割り勘ボタンと奢りボタンの削除
     this.dutchTreatButton.style.display = "none";
@@ -87,72 +98,77 @@ class PaymentApp {
     this.nameBox.style.display = "flex";
     this.nameBox.style.color = "#000000";
     this.backButton.style.display = "flex";
-    this.addTextboxButton.style.display = "flex"
+    this.addTextboxButton.style.display = "flex";
     this.graceDecisionButton.style.display = "flex";
   }
 
   // textbox追加
   addTextbox() {
-    // 新しい div 要素を作成
-    var countText = 1;    
-      for (let i = 0; i < 2; i++){
-        countText = countText + i;
-      }
-    console.log(countText);
+    // 新しい要素を作成
     var newTextbox = document.createElement("input");
     newTextbox.setAttribute("type", "text");
-    newTextbox.setAttribute("id", countText + "nameBox");
+    newTextbox.setAttribute("id", this.countText + "nameBox");
     newTextbox.setAttribute("class", "textbox");
-    newTextbox.setAttribute("placeholder", countText +  "人目の名前を入力");
+    newTextbox.setAttribute("placeholder", this.countText + "人目の名前を入力");
     newTextbox.style.display = "flex";
     newTextbox.style.color = "#000000";
 
-    // DOM に新しく作られた要素とその内容を追加
+    // DOMに新しく作られた要素とその内容を追加
     var currentTextbox = document.getElementById("inputName");
     currentTextbox.appendChild(newTextbox);
-  } 
+    this.countText = this.countText + 1;
+  }
 
   // 奢りの結果
   GraceSubmit() {
-    // innerHTMLでテキストを書き換え
+    // textboxに入力された名前が入っている配列
+    const NameArray = [];
+    for (let i = 1; i < this.countText; i++) {
+      // 追加されたtextboxのid取得
+      var getName = document.getElementById(i + "nameBox");
+      // 追加されたtextboxに入力された値の取得
+      var addName = getName.value;
+      // 入力された値を配列に追加
+      NameArray.push(addName);
+    }
+    // 配列の中の要素をランダムで取得
+    const GraceResult = (NameArray[Math.floor(Math.random() * NameArray.length)]);
+
+    // テキストを書き換え
     this.title.innerHTML = "今回奢る人は";
-    this.resultText.innerHTML =  + "さん";
+    this.resultText.innerHTML = GraceResult  + "さん";
+
+    // heightの調整
+    this.anyTexts.style.height = "60vh";
 
     // textboxとボタンの削除
     this.nameBox.style.display = "none";
-    this.addTextboxButton.style.display = "none"
+    this.addTextboxButton.style.display = "none";
     this.graceDecisionButton.style.display = "none";
     this.inputName.style.display = "none";
 
-    const NameArray = [
-      
-    ]
-    // ランダム関数など
-    const Name = this.nameBox.value;
-    const addName = document.getElementById(countText + "addNameBox").value;
-    NameArray.push(Name);
-    NameArray.push(addName);
-    console.log(NameArray);
-    
-    if (Name == ""){
+    // 名前が入力されていなかったらエラーテキストを表示
+    if (addName == "") {
       this.title.innerHTML = "名前を入力してください";
       this.resultText.innerHTML = "";
       this.addTextboxButton.style.display = "flex";
       this.nameBox.style.display = "flex";
-      this.inputName.style.display = "flex";
+      this.inputName.style.display = "inline-block";
       this.graceDecisionButton.style.display = "flex";
-      this.backButton.style.display = "flex";
       this.errorText.innerHTML = "入力されていません";
-    }
-    else {
+    } else {
       this.errorText.innerHTML = "";
     }
+  }
+
+  dutchTreatExplanation(){
+
   }
 }
 
 window.onload = function () {
   const app = new PaymentApp();
-  app.dutchTreatButton.addEventListener("click", () => app.startDutchTreat()); 
+  app.dutchTreatButton.addEventListener("click", () => app.startDutchTreat());
   app.dutchTreatDecisionButton.addEventListener("click", () => app.dutchTreatSubmit());
   app.graceButton.addEventListener("click", () => app.startGrace());
   app.addTextboxButton.addEventListener("click", () => app.addTextbox());

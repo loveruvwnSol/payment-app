@@ -1,6 +1,7 @@
 @media screen and (max-width:544px){
     button {
-        font-size: 16px;
+        font-size: 20px;
+        padding: 10px 40px;
       }
 
     .title {
@@ -9,5 +10,9 @@
 
     .textbox {
     padding: 10px 30px;
+    }
+    
+    .smallBtn{
+      padding: 10px 10px;
     }
 }

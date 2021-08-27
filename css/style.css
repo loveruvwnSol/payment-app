@@ -12,7 +12,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
+}
+
+.any_Texts{
+  display: flex;
+  align-items: flex-end;
+  height: 50vh;
 }
 
 .title {
@@ -74,6 +80,11 @@ button:hover {
 /* 戻るボタンを非表示 */
 .back_button {
   display: none;
+}
+
+.explanation_btn{
+  padding: 0px 10px;
+  margin: 0px 80px;
 }
 
 /* textbox */

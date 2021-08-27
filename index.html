@@ -14,18 +14,20 @@
 <body>
   <div class="contents">
     <!-- text -->
-    <div class="any_Texts">
+    <div class="any_Texts" id="anyTexts">
+      <div>
       <h1 class="title" id="outputTitle">支払いアプリ</h1>
       <p class="select_text" id="outputSelectText">どちらか選択してください</p>
       <h1 class="result_text" id="resultText"></h1>
       <p class="error_text" id="errorText"></p>
+    </div>
     </div>
     <!-- addTextboxButton -->
     <button class="add_textbox_button" id="addTextboxButton">人数を追加</button>
     <!-- textbox -->
     <div class="any_textboxs">
       <div class="input_AmountOfMoney">
-        <input class="textbox" id="amountOfMoneyBox" type="number" placeholder="金額を入力">
+        <input class="textbox" id="amountOfMoneyBox" type="text" placeholder="金額を入力">
         <!-- <h2>円</h2> -->
       </div>
       <div class="input_NumberOfPeople">
@@ -33,7 +35,7 @@
         <!-- <h2>人</h2> -->
       </div>
       <div class="input_name" id="inputName">
-        <input class="textbox" id="nameBox" type="text" placeholder="１人目の名前を入力">
+        <input class="textbox" id="1nameBox" type="text" placeholder="１人目の名前を入力">
       </div>
     </div>
     <!-- button -->
@@ -42,7 +44,12 @@
       <button id="graceButton">奢り</button>
       <button class="back_button" id="backButton">戻る</button>
       <button class="decision_button" id="dutchTreatDecisionButton">決定</button>
-      <button class="decision_button" id="graceDecisionButton">奢る人を決める</button>
+      <button class="decision_button smallBtn" id="graceDecisionButton">奢る人を決める</button>
+    </div>
+    <div class="explanation">
+      <!-- <button class="explanation_btn" id="dutchTreatExplanationBtn">?</button>
+      <button class="explanation_btn" id="GraceExplanationBtn">?</button> -->
+      <div class=""></div>
     </div>
   </div>
 </body>
