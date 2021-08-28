@@ -2,7 +2,7 @@ class PaymentApp {
   // id取得
   constructor() {
     this.countText = 2; // カウンター
-    this.anyTexts = document.getElementById("anyTexts");
+    this.anyTexts = document.getElementById("anyTexts"); // 複数のテキスト
     this.title = document.getElementById("outputTitle"); // タイトルテキスト
     this.select_text = document.getElementById("outputSelectText"); // サブテキスト
     this.dutchTreatButton = document.getElementById("dutchTreatButton"); // 割り勘ボタン
@@ -17,7 +17,6 @@ class PaymentApp {
     this.resultText = document.getElementById("resultText"); // 結果テキスト
     this.backButton = document.getElementById("backButton"); // 戻るボタン
     this.errorText = document.getElementById("errorText"); // エラーテキスト
-    this.dutchTreatExplanationBtn = document.getElementById("dutchTreatExplanationBtn");
   }
 
   // 割り勘ボタンが押されたら実行
@@ -33,7 +32,7 @@ class PaymentApp {
     this.dutchTreatButton.style.display = "none";
     this.graceButton.style.display = "none";
 
-    // textboxと決定ボタンを追加
+    // textboxと決定ボタン、戻るボタンを追加
     this.dutchTreatDecisionButton.style.display = "flex";
     this.amountOfMoneyBox.style.display = "flex";
     this.amountOfMoneyBox.style.color = "#000000";
@@ -58,15 +57,12 @@ class PaymentApp {
     // heightの調整
     this.anyTexts.style.height = "60vh";
 
-    // 戻るボタンの追加
-    this.backButton.style.display = "flex";
-
     // テキストボックスと決定ボタンの削除
     this.amountOfMoneyBox.style.display = "none";
     this.DTNumberOfPeopleBox.style.display = "none";
     this.dutchTreatDecisionButton.style.display = "none";
 
-    // 数値が入力されなかったらエラーテキストを表示
+    // 数値が入力されなかったらエラーテキストを表示、画面の切り替えを無効
     if (en == "" || people == "") {
       this.title.innerHTML = "支払い金額と人数を入力してください";
       this.resultText.innerHTML = "";
@@ -76,6 +72,7 @@ class PaymentApp {
       this.DTNumberOfPeopleBox.style.display = "flex";
       this.DTNumberOfPeopleBox.style.color = "#000000";
       this.errorText.innerHTML = "入力されていません";
+      this.anyTexts.style.height = "40vh";
     } else {
       this.errorText.innerHTML = "";
     }
@@ -102,7 +99,7 @@ class PaymentApp {
     this.graceDecisionButton.style.display = "flex";
   }
 
-  // textbox追加
+  // 奢り 人数追加
   addTextbox() {
     // 新しい要素を作成
     var newTextbox = document.createElement("input");
@@ -124,19 +121,18 @@ class PaymentApp {
     // textboxに入力された名前が入っている配列
     const NameArray = [];
     for (let i = 1; i < this.countText; i++) {
-      // 追加されたtextboxのid取得
-      var getName = document.getElementById(i + "nameBox");
-      // 追加されたtextboxに入力された値の取得
-      var addName = getName.value;
+      // textboxに入力された値の取得
+      var getName = document.getElementById(i + "nameBox").value;
+      var firstNameBox = this.nameBox.value;
       // 入力された値を配列に追加
-      NameArray.push(addName);
+      NameArray.push(getName);
     }
     // 配列の中の要素をランダムで取得
     const GraceResult = (NameArray[Math.floor(Math.random() * NameArray.length)]);
 
     // テキストを書き換え
     this.title.innerHTML = "今回奢る人は";
-    this.resultText.innerHTML = GraceResult  + "さん";
+    this.resultText.innerHTML = GraceResult + "さん";
 
     // heightの調整
     this.anyTexts.style.height = "60vh";
@@ -147,8 +143,8 @@ class PaymentApp {
     this.graceDecisionButton.style.display = "none";
     this.inputName.style.display = "none";
 
-    // 名前が入力されていなかったらエラーテキストを表示
-    if (addName == "") {
+    // 名前が入力されていなかったらエラーテキストを表示、画面の切り替えを無効
+    if (firstNameBox == "" || getName == "") {
       this.title.innerHTML = "名前を入力してください";
       this.resultText.innerHTML = "";
       this.addTextboxButton.style.display = "flex";
@@ -156,13 +152,10 @@ class PaymentApp {
       this.inputName.style.display = "inline-block";
       this.graceDecisionButton.style.display = "flex";
       this.errorText.innerHTML = "入力されていません";
+      this.anyTexts.style.height = "40vh";
     } else {
       this.errorText.innerHTML = "";
     }
-  }
-
-  dutchTreatExplanation(){
-
   }
 }
 

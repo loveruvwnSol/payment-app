@@ -1,18 +1,30 @@
-@media screen and (max-width:544px){
-    button {
-        font-size: 20px;
-        padding: 10px 40px;
-      }
+@media screen and (max-width:544px) {
 
-    .title {
+  /* text */
+
+  .title {
     font-size: 32px;
-    }
+  }
 
-    .textbox {
+  .result_text {
+    font-size: 35px;
+  }
+
+  /* button */
+
+  button {
+    font-size: 20px;
+    padding: 10px 40px;
+  }
+
+  .smallBtn {
+    padding: 10px 10px;
+  }
+
+  /* textbox */
+
+  .textbox {
     padding: 10px 30px;
-    }
-    
-    .smallBtn{
-      padding: 10px 10px;
-    }
+  }
+  
 }

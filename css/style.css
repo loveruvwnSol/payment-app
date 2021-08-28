@@ -7,15 +7,15 @@
 }
 
 /* text */
+
 .contents {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
 }
 
-.any_Texts{
+.any_Texts {
   display: flex;
   align-items: flex-end;
   height: 50vh;
@@ -37,7 +37,7 @@
   margin: 0px 0px 50px 0px;
 }
 
-.input_Name{
+.input_Name {
   display: none;
   justify-content: space-around;
 }
@@ -45,9 +45,11 @@
 .error_text {
   text-align: center;
   color: red;
+  margin: 0px 0px 15px 0px;
 }
 
 /* button */
+
 .any_buttons {
   display: flex;
   justify-content: space-around;
@@ -64,30 +66,33 @@ button {
   transition: all 0.2s;
 }
 
+/* button additional elements */
+
 button:hover {
   background-color: #eae8e8;
 }
 
-/* 決定ボタンを非表示 */
 .decision_button {
   display: none;
   border: #00ced1 1px solid;
 }
-.add_textbox_button{
+
+.add_textbox_button {
   display: none;
   border: #00f3b0 1px solid;
 }
-/* 戻るボタンを非表示 */
+
 .back_button {
   display: none;
 }
 
-.explanation_btn{
+.explanation_btn {
   padding: 0px 10px;
   margin: 0px 80px;
 }
 
 /* textbox */
+
 .textbox {
   display: none;
   padding: 10px 50px;
@@ -100,13 +105,24 @@ button:hover {
   text-align: center;
   color: #707070;
 }
+
+/* textbox additional elements */
+
 .textbox:focus {
   outline: none;
+  border: #00f3b0 1px solid;
 }
+
 .textbox:focus::-webkit-input-placeholder {
   color: transparent;
 }
-.input_Name{
+
+.input_Name {
   display: flex;
   flex-direction: column;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
