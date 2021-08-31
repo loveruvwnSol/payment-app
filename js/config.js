@@ -63,7 +63,7 @@ class PaymentApp {
     this.dutchTreatDecisionButton.style.display = "none";
 
     // 数値が入力されなかったらエラーテキストを表示、画面の切り替えを無効
-    if (en == "" || people == "") {
+    if (en == "" || people == "" || en == "0" || people == "0") {
       this.title.innerHTML = "支払い金額と人数を入力してください";
       this.resultText.innerHTML = "";
       this.dutchTreatDecisionButton.style.display = "flex";
@@ -75,6 +75,10 @@ class PaymentApp {
       this.anyTexts.style.height = "40vh";
     } else {
       this.errorText.innerHTML = "";
+    }
+
+    if (Number.isInteger(dutchTreatResult)){
+      Math.ceil(dutchTreatResult);
     }
   }
 
